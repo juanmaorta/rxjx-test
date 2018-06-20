@@ -1,0 +1,20 @@
+{
+  "name": "test-rxjs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node ./src/index.js --presets es2015,stage-2",
+    "subject": "babel-node ./src/subject.js --presets es2015,stage-2"
+  },
+  "author": "Juanma Orta",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  },
+  "dependencies": {
+    "rxjs": "^5.0.0"
+  }
+}
