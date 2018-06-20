@@ -1,17 +1,27 @@
-/* eslint no-console: "off" */
-import { Observable } from 'rxjs/Observable'
+import _ from 'lodash'
 
-const myObservable = Observable.create((observer) => {
-  console.log('Hello from Observable')
-  observer.next(1)
-  observer.next(2)
-  observer.next(3)
-  observer.complete()
-})
+import { Subject } from 'rxjs/Subject'
+const mySubject = new Subject()
 
-const obs = {
-  next: (o) => console.log(o),
-  complete: () => console.log('complete')
+const observerObj = {
+  next: (o) => displayText(`observer A: ${o}`)
 }
 
-myObservable.subscribe(obs)
+const displayText = (text) => {
+  document.body.appendChild(component(text))
+}
+
+mySubject.subscribe(observerObj)
+mySubject.subscribe({
+  next: o => displayText(`observer B: ${o}`)
+})
+mySubject.next(1)
+mySubject.next(2)
+
+function component (text) {
+  var element = document.createElement('div')
+ // Lodash, now imported by this script
+  element.innerHTML = text
+
+  return element
+}
